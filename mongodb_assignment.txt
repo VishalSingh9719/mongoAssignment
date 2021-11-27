@@ -1,0 +1,399 @@
+ db.users.insert({"first_name":"Vishal","Last_name":"Singh","gender":"Male","age":22,"ip_address":"1.0.0.120"});
+WriteResult({ "nInserted" : 1 })
+> db.users.find().pretty();
+{
+        "_id" : ObjectId("619ceb932730921d4d042a3b"),
+        "first_name" : "Vishal",
+        "Last_name" : "Singh",
+        "gender" : "Male",
+        "age" : 22,
+        "ip_address" : "1.0.0.120"
+}
+> db.users.insert({"first_name:"Vihan","Last_name":"Roy","gender":"Male","age":25,"ip_address":"1.0.0.123"});
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:30
+>  db.users.insert({"first_name":"Vihan","Last_name":"Roy","gender":"Male","age":25,"ip_address":"1.0.0.123"});
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({"first
+uncaught exception: SyntaxError: "" literal not terminated before end of script :
+@(shell):1:23
+> db.users.insert({"first_name":"Anshuman","last_name":"Pokhariyal","gender":"male","age":30,"ip_address":"1.0.0.122"});
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({"first_name":"Abhinav","last_name":"Sakaria","gender":"male","age":28,"ip_address":"1.0.0.120});
+uncaught exception: SyntaxError: "" literal not terminated before end of script :
+@(shell):1:113
+>  db.users.insert({"first_name":"Abhinav","last_name":"Sakaria","gender":"male","age":28,"ip_address":"1.0.0.120"});
+WriteResult({ "nInserted" : 1 })
+> db.users.insertMany({"first_name":"Raj","last_name":"Shekhar","gender":"male","age":26,"ip_address":"1.0.0.121"},{"first_name":"Rupesh","last_name":"Chauhan","gender":"male","age":32,"ip_address":"1.0.0.125"}
+... ^C
+
+>  db.users.insertMany({"first_name":"Raj","last_name":"Shekhar","gender":"male","age":26,"ip_address":"1.0.0.121"},{"first_name":"Rupesh","last_name":"Chauhan","gender":"male","age":32,"ip_address":"1.0.0.125"});
+uncaught exception: TypeError: documents.map is not a function :
+DBCollection.prototype.insertMany@src/mongo/shell/crud_api.js:307:17
+@(shell):1:1
+> db.users.insertMany([{"first_name":"Raj","last_name":"Shekhar","gender":"male","age":26,"ip_address":"1.0.0.121"},{"first_name":"Rupesh","last_name":"Chauhan","gender":"male","age":32,"ip_address":"1.0.0.125"}]);
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("619ceec32730921d4d042a3f"),
+                ObjectId("619ceec32730921d4d042a40")
+        ]
+}
+> db.users.insertMany([{"first_name":"Rajat","last_name":"Shehrawat","gender":"male","age":24,"ip_address":"1.0.0.124"},{"first_name":"Niharika","last_name":"Roy","gender":"female","age":29,"ip_address":"1.0.0.124"},{"first_name":"Smriti","last_name":"Mandhana","gender":"female","age":24,"ip_address":"1.0.0.128"}]);
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("619ceff32730921d4d042a41"),
+                ObjectId("619ceff32730921d4d042a42"),
+                ObjectId("619ceff32730921d4d042a43")
+        ]
+}
+>  db.users.insertMany([{"first_name":"Harsimarat","last_name":"Kaur","gender":"female","age":28,"ip_address":"1.0.0.123"}]);
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("619cf0402730921d4d042a44")
+        ]
+}
+> db.users.find();
+{ "_id" : ObjectId("619ceb932730921d4d042a3b"), "first_name" : "Vishal", "Last_name" : "Singh", "gender" : "Male", "age" : 22, "ip_address" : "1.0.0.120" }
+{ "_id" : ObjectId("619cec832730921d4d042a3c"), "first_name" : "Vihan", "Last_name" : "Roy", "gender" : "Male", "age" : 25, "ip_address" : "1.0.0.123" }
+{ "_id" : ObjectId("619ced0e2730921d4d042a3d"), "first_name" : "Anshuman", "last_name" : "Pokhariyal", "gender" : "male", "age" : 30, "ip_address" : "1.0.0.122" }
+{ "_id" : ObjectId("619cedaa2730921d4d042a3e"), "first_name" : "Abhinav", "last_name" : "Sakaria", "gender" : "male", "age" : 28, "ip_address" : "1.0.0.120" }
+{ "_id" : ObjectId("619ceec32730921d4d042a3f"), "first_name" : "Raj", "last_name" : "Shekhar", "gender" : "male", "age" : 26, "ip_address" : "1.0.0.121" }
+{ "_id" : ObjectId("619ceec32730921d4d042a40"), "first_name" : "Rupesh", "last_name" : "Chauhan", "gender" : "male", "age" : 32, "ip_address" : "1.0.0.125" }
+{ "_id" : ObjectId("619ceff32730921d4d042a41"), "first_name" : "Rajat", "last_name" : "Shehrawat", "gender" : "male", "age" : 24, "ip_address" : "1.0.0.124" }
+{ "_id" : ObjectId("619ceff32730921d4d042a42"), "first_name" : "Niharika", "last_name" : "Roy", "gender" : "female", "age" : 29, "ip_address" : "1.0.0.124" }
+{ "_id" : ObjectId("619ceff32730921d4d042a43"), "first_name" : "Smriti", "last_name" : "Mandhana", "gender" : "female", "age" : 24, "ip_address" : "1.0.0.128" }
+{ "_id" : ObjectId("619cf0402730921d4d042a44"), "first_name" : "Harsimarat", "last_name" : "Kaur", "gender" : "female", "age" : 28, "ip_address" : "1.0.0.123" }
+> db.users.find().pretty();
+{
+        "_id" : ObjectId("619ceb932730921d4d042a3b"),
+        "first_name" : "Vishal",
+        "Last_name" : "Singh",
+        "gender" : "Male",
+        "age" : 22,
+        "ip_address" : "1.0.0.120"
+}
+{
+        "_id" : ObjectId("619cec832730921d4d042a3c"),
+        "first_name" : "Vihan",
+        "Last_name" : "Roy",
+        "gender" : "Male",
+        "age" : 25,
+        "ip_address" : "1.0.0.123"
+}
+{
+        "_id" : ObjectId("619ced0e2730921d4d042a3d"),
+        "first_name" : "Anshuman",
+        "last_name" : "Pokhariyal",
+        "gender" : "male",
+        "age" : 30,
+        "ip_address" : "1.0.0.122"
+}
+{
+        "_id" : ObjectId("619cedaa2730921d4d042a3e"),
+        "first_name" : "Abhinav",
+        "last_name" : "Sakaria",
+        "gender" : "male",
+        "age" : 28,
+        "ip_address" : "1.0.0.120"
+}
+{
+        "_id" : ObjectId("619ceec32730921d4d042a3f"),
+        "first_name" : "Raj",
+        "last_name" : "Shekhar",
+        "gender" : "male",
+        "age" : 26,
+        "ip_address" : "1.0.0.121"
+}
+{
+        "_id" : ObjectId("619ceec32730921d4d042a40"),
+        "first_name" : "Rupesh",
+        "last_name" : "Chauhan",
+        "gender" : "male",
+        "age" : 32,
+        "ip_address" : "1.0.0.125"
+}
+{
+        "_id" : ObjectId("619ceff32730921d4d042a41"),
+        "first_name" : "Rajat",
+        "last_name" : "Shehrawat",
+        "gender" : "male",
+        "age" : 24,
+        "ip_address" : "1.0.0.124"
+}
+{
+        "_id" : ObjectId("619ceff32730921d4d042a42"),
+        "first_name" : "Niharika",
+        "last_name" : "Roy",
+        "gender" : "female",
+        "age" : 29,
+        "ip_address" : "1.0.0.124"
+}
+{
+        "_id" : ObjectId("619ceff32730921d4d042a43"),
+        "first_name" : "Smriti",
+        "last_name" : "Mandhana",
+        "gender" : "female",
+        "age" : 24,
+        "ip_address" : "1.0.0.128"
+}
+{
+        "_id" : ObjectId("619cf0402730921d4d042a44"),
+        "first_name" : "Harsimarat",
+        "last_name" : "Kaur",
+        "gender" : "female",
+        "age" : 28,
+        "ip_address" : "1.0.0.123"
+}
+> db.users.findOne({"_id":"619ceff32730921d4d042a43"}).pretty();
+uncaught exception: TypeError: db.users.findOne(...) is null :
+@(shell):1:1
+> db.users.findOne({"_id":ObjectId("619ceff32730921d4d042a43")}).pretty();
+uncaught exception: TypeError: db.users.findOne(...).pretty is not a function :
+@(shell):1:1
+> db.users.findOne("_id":"619ceff32730921d4d042a43").pretty();
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:22
+>  db.users.findOne("_id":ObjectId("619ceff32730921d4d042a43")).pretty();
+
+  db.users.findOne({first_name:"Harsimrat"})
+null
+>  db.users.findOne({first_name:"Harsimarat"})
+{
+        "_id" : ObjectId("619cf0402730921d4d042a44"),
+        "first_name" : "Harsimarat",
+        "last_name" : "Kaur",
+        "gender" : "female",
+        "age" : 28,
+        "ip_address" : "1.0.0.123"
+}
+>  db.users.findOne({"_id":ObjectId("619ceff32730921d4d042a43")});
+{
+        "_id" : ObjectId("619ceff32730921d4d042a43"),
+        "first_name" : "Smriti",
+        "last_name" : "Mandhana",
+        "gender" : "female",
+        "age" : 24,
+        "ip_address" : "1.0.0.128"
+}
+>  db.users.findOne(){"age":26});
+uncaught exception: SyntaxError: unexpected token: '{' :
+@(shell):1:18
+>   db.users.findOne({"age":26});
+{
+        "_id" : ObjectId("619ceec32730921d4d042a3f"),
+        "first_name" : "Raj",
+        "last_name" : "Shekhar",
+        "gender" : "male",
+        "age" : 26,
+        "ip_address" : "1.0.0.121"
+}
+> db.users.update({"_id": ObjectId("619ceff32730921d4d042a41"),first_name":"Viraj"});
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:71
+> db.users.update({"_id": ObjectId("619ceff32730921d4d042a41"),"first_name":"Viraj"});
+uncaught exception: Error: need an update object or pipeline :
+DBCollection.prototype._parseUpdate@src/mongo/shell/collection.js:461:15
+DBCollection.prototype.update@src/mongo/shell/collection.js:510:18
+@(shell):1:1
+>  db.users.update({"_id": ObjectId("619ceff32730921d4d042a41")},{$set:{"first_name":"Viraj"}});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.users.update({"age":26},{$set:{"age":31}});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.users.updateMany({"age":{$gt:24}},{$set:{"age":35}});
+{ "acknowledged" : true, "matchedCount" : 7, "modifiedCount" : 7 }
+> db.users.find({});
+{ "_id" : ObjectId("619ceb932730921d4d042a3b"), "first_name" : "Vishal", "Last_name" : "Singh", "gender" : "Male", "age" : 22, "ip_address" : "1.0.0.120" }
+{ "_id" : ObjectId("619cec832730921d4d042a3c"), "first_name" : "Vihan", "Last_name" : "Roy", "gender" : "Male", "age" : 35, "ip_address" : "1.0.0.123" }
+{ "_id" : ObjectId("619ced0e2730921d4d042a3d"), "first_name" : "Anshuman", "last_name" : "Pokhariyal", "gender" : "male", "age" : 35, "ip_address" : "1.0.0.122" }
+{ "_id" : ObjectId("619cedaa2730921d4d042a3e"), "first_name" : "Abhinav", "last_name" : "Sakaria", "gender" : "male", "age" : 35, "ip_address" : "1.0.0.120" }
+{ "_id" : ObjectId("619ceec32730921d4d042a3f"), "first_name" : "Raj", "last_name" : "Shekhar", "gender" : "male", "age" : 35, "ip_address" : "1.0.0.121" }
+{ "_id" : ObjectId("619ceec32730921d4d042a40"), "first_name" : "Rupesh", "last_name" : "Chauhan", "gender" : "male", "age" : 35, "ip_address" : "1.0.0.125" }
+{ "_id" : ObjectId("619ceff32730921d4d042a41"), "first_name" : "Viraj", "last_name" : "Shehrawat", "gender" : "male", "age" : 24, "ip_address" : "1.0.0.124" }
+{ "_id" : ObjectId("619ceff32730921d4d042a42"), "first_name" : "Niharika", "last_name" : "Roy", "gender" : "female", "age" : 35, "ip_address" : "1.0.0.124" }
+{ "_id" : ObjectId("619ceff32730921d4d042a43"), "first_name" : "Smriti", "last_name" : "Mandhana", "gender" : "female", "age" : 24, "ip_address" : "1.0.0.128" }
+{ "_id" : ObjectId("619cf0402730921d4d042a44"), "first_name" : "Harsimarat", "last_name" : "Kaur", "gender" : "female", "age" : 35, "ip_address" : "1.0.0.123" }
+> db.users.find({}).pretty();
+{
+        "_id" : ObjectId("619ceb932730921d4d042a3b"),
+        "first_name" : "Vishal",
+        "Last_name" : "Singh",
+        "gender" : "Male",
+        "age" : 22,
+        "ip_address" : "1.0.0.120"
+}
+{
+        "_id" : ObjectId("619cec832730921d4d042a3c"),
+        "first_name" : "Vihan",
+        "Last_name" : "Roy",
+        "gender" : "Male",
+        "age" : 35,
+        "ip_address" : "1.0.0.123"
+}
+{
+        "_id" : ObjectId("619ced0e2730921d4d042a3d"),
+        "first_name" : "Anshuman",
+        "last_name" : "Pokhariyal",
+        "gender" : "male",
+        "age" : 35,
+        "ip_address" : "1.0.0.122"
+}
+{
+        "_id" : ObjectId("619cedaa2730921d4d042a3e"),
+        "first_name" : "Abhinav",
+        "last_name" : "Sakaria",
+        "gender" : "male",
+        "age" : 35,
+        "ip_address" : "1.0.0.120"
+}
+{
+        "_id" : ObjectId("619ceec32730921d4d042a3f"),
+        "first_name" : "Raj",
+        "last_name" : "Shekhar",
+        "gender" : "male",
+        "age" : 35,
+        "ip_address" : "1.0.0.121"
+}
+{
+        "_id" : ObjectId("619ceec32730921d4d042a40"),
+        "first_name" : "Rupesh",
+        "last_name" : "Chauhan",
+        "gender" : "male",
+        "age" : 35,
+        "ip_address" : "1.0.0.125"
+}
+{
+        "_id" : ObjectId("619ceff32730921d4d042a41"),
+        "first_name" : "Viraj",
+        "last_name" : "Shehrawat",
+        "gender" : "male",
+        "age" : 24,
+        "ip_address" : "1.0.0.124"
+}
+{
+        "_id" : ObjectId("619ceff32730921d4d042a42"),
+        "first_name" : "Niharika",
+        "last_name" : "Roy",
+        "gender" : "female",
+        "age" : 35,
+        "ip_address" : "1.0.0.124"
+}
+{
+        "_id" : ObjectId("619ceff32730921d4d042a43"),
+        "first_name" : "Smriti",
+        "last_name" : "Mandhana",
+        "gender" : "female",
+        "age" : 24,
+        "ip_address" : "1.0.0.128"
+}
+{
+        "_id" : ObjectId("619cf0402730921d4d042a44"),
+        "first_name" : "Harsimarat",
+        "last_name" : "Kaur",
+        "gender" : "female",
+        "age" : 35,
+        "ip_address" : "1.0.0.123"
+}
+> db.users.updateMany({"ip_address":"1.0.0.128"},{$set:{"last_name":"Parrikar"}});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.users.find({}).pretty();
+{
+        "_id" : ObjectId("619ceb932730921d4d042a3b"),
+        "first_name" : "Vishal",
+        "Last_name" : "Singh",
+        "gender" : "Male",
+        "age" : 22,
+        "ip_address" : "1.0.0.120"
+}
+{
+        "_id" : ObjectId("619cec832730921d4d042a3c"),
+        "first_name" : "Vihan",
+        "Last_name" : "Roy",
+        "gender" : "Male",
+        "age" : 35,
+        "ip_address" : "1.0.0.123"
+}
+{
+        "_id" : ObjectId("619ced0e2730921d4d042a3d"),
+        "first_name" : "Anshuman",
+        "last_name" : "Pokhariyal",
+        "gender" : "male",
+        "age" : 35,
+        "ip_address" : "1.0.0.122"
+}
+{
+        "_id" : ObjectId("619cedaa2730921d4d042a3e"),
+        "first_name" : "Abhinav",
+        "last_name" : "Sakaria",
+        "gender" : "male",
+        "age" : 35,
+        "ip_address" : "1.0.0.120"
+}
+{
+        "_id" : ObjectId("619ceec32730921d4d042a3f"),
+        "first_name" : "Raj",
+        "last_name" : "Shekhar",
+        "gender" : "male",
+        "age" : 35,
+        "ip_address" : "1.0.0.121"
+}
+{
+        "_id" : ObjectId("619ceec32730921d4d042a40"),
+        "first_name" : "Rupesh",
+        "last_name" : "Chauhan",
+        "gender" : "male",
+        "age" : 35,
+        "ip_address" : "1.0.0.125"
+}
+{
+        "_id" : ObjectId("619ceff32730921d4d042a41"),
+        "first_name" : "Viraj",
+        "last_name" : "Shehrawat",
+        "gender" : "male",
+        "age" : 24,
+        "ip_address" : "1.0.0.124"
+}
+{
+        "_id" : ObjectId("619ceff32730921d4d042a42"),
+        "first_name" : "Niharika",
+        "last_name" : "Roy",
+        "gender" : "female",
+        "age" : 35,
+        "ip_address" : "1.0.0.124"
+}
+{
+        "_id" : ObjectId("619ceff32730921d4d042a43"),
+        "first_name" : "Smriti",
+        "last_name" : "Parrikar",
+        "gender" : "female",
+        "age" : 24,
+        "ip_address" : "1.0.0.128"
+}
+{
+        "_id" : ObjectId("619cf0402730921d4d042a44"),
+        "first_name" : "Harsimarat",
+        "last_name" : "Kaur",
+        "gender" : "female",
+        "age" : 35,
+        "ip_address" : "1.0.0.123"
+}
+>
+ db.users.remove({"age":26},1);
+WriteResult({ "nRemoved" : 0 })
+> db.users.remove({"first_name":"Rupesh"});
+WriteResult({ "nRemoved" : 1 })
+> db.users.remove({"last_name":"Sheharawat"});
+WriteResult({ "nRemoved" : 0 })
+> db.users.remove({"last_name":"Shehrawat"});
+WriteResult({ "nRemoved" : 1 })
+
+ db.users.deleteOne({"first_name":"Raj"});
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.users.deleteMany({"ip_address":"1.0.0.120"});
+{ "acknowledged" : true, "deletedCount" : 2 }
+
+
+ db.dropDatabase();
+{ "ok" : 1 }
